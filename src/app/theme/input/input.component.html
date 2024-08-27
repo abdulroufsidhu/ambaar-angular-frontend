@@ -1,0 +1,17 @@
+<div>
+    <span class="icon">
+        <ng-content select="[leadingIcon]"></ng-content>
+    </span>
+    <input
+        [attr.type]="type()"
+        [attr.min]="min?.()"
+        [attr.max]="max?.()"
+        [attr.minlength]="minlength?.()"
+        [attr.maxlength]="maxlength?.()"
+        [attr.placeholder]="placeholder()"
+        (change)="onChange($event)"
+    />
+    <span class="icon">
+        <ng-content class="icon" select="[trailingIcon]"></ng-content>
+    </span>
+</div>

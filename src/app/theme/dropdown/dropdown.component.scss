@@ -1,0 +1,11 @@
+@import "../../app.component.scss";
+
+select {
+    border: 2px solid $primary-color;
+    padding: 0.25em;
+    min-height: 42px;
+    margin: 0.25em;
+    min-width: 250px;
+    &:focus-visible {
+    }
+}
