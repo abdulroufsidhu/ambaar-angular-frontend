@@ -14,10 +14,14 @@ div {
         flex-direction: row;
         align-items: center;
         justify-content: end;
-        img {
+        svg {
             width: 1.2em;
             aspect-ratio: 1;
             margin: 0.25em;
+            rotate: 0deg;
+        }
+        .rotate {
+            rotate: 180deg;
         }
     }
     .visible {
@@ -25,13 +29,34 @@ div {
         visibility: hidden;
     }
     ul {
+        &::-webkit-scrollbar {
+            width: 0.5em;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px $grey-color;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: red;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #b30000;
+        }
+
         border: 2px solid $primary-color;
         height: 8em;
         visibility: visible;
         list-style-type: none;
         overflow-y: scroll;
         resize: vertical;
-        :active,
+        .active,
         li {
             color: $primary-color;
             background-color: $bg-color;
