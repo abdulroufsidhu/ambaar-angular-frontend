@@ -1,5 +1,16 @@
-<select>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3" selected>3</option>
-</select>
+<div>
+    <div (click)="isOpen = !isOpen">
+        {{ active?.text }}
+        <img src="chevron" />
+    </div>
+    <ul [class.visible]="isOpen">
+        <li
+            *ngFor="let option of options()"
+            (click)="active = option"
+            [attr.value]="option.value"
+            [class.active]="option.value == active?.value"
+        >
+            {{ option.text }}
+        </li>
+    </ul>
+</div>

@@ -1,4 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, input } from "@angular/core";
+
+export interface DropdownOption {
+  value?: string;
+  text?: string;
+}
 
 @Component({
   imports: [],
@@ -7,4 +12,12 @@ import { Component } from "@angular/core";
   templateUrl: "./dropdown.component.html",
   styleUrl: "./dropdown.component.scss",
 })
-export class AppDropdown {}
+export class AppDropdown {
+  options = input<DropdownOption[]>([]);
+  active?: DropdownOption = {};
+  isOpen? = false;
+
+  constructor() {
+    console.log("options are", this.options());
+  }
+}
