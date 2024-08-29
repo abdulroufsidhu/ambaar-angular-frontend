@@ -1,8 +1,13 @@
 <div>
-    <div (click)="isOpen = !isOpen">
-        {{ active?.text }}
+    <div (click)="toggleOpen()">
+        <div *ngIf="active.value">
+            {{ active.text | titlecase }}
+        </div>
+        <div *ngIf="!active.value" style="color: bfb2b2b2">
+            {{ placeholder() | titlecase }}
+        </div>
         <svg
-            [class.rotate]="isOpen"
+            [class.rotate]="!isOpen"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -18,14 +23,15 @@
             />
         </svg>
     </div>
-    <ul [class.visible]="isOpen">
-        <li
-            *ngFor="let option of options()"
-            (click)="active = option"
-            [attr.value]="option.value"
-            [class.active]="option.value == active?.value"
-        >
-            {{ option.text }}
-        </li>
+    <ul [ngClass]="{ visible: isOpen }">
+        @for (option of options(); track option.value) {
+            <li
+                (click)="setActive(option)"
+                [attr.value]="option.value"
+                [ngClass]="{ active: option.value == active.value }"
+            >
+                {{ option.text }}
+            </li>
+        }
     </ul>
 </div>

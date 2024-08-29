@@ -1,19 +1,23 @@
 @import "../../app.component.scss";
-
 div {
     padding: 0.25em;
     margin: 0.25em 0;
-    min-width: 250px;
     display: flex;
     flex-direction: column;
     div {
         padding: 0;
-        min-height: 3em;
+        min-height: 2em;
         margin: 0.25em 0;
         border: 2px solid $primary-color;
         flex-direction: row;
         align-items: center;
-        justify-content: end;
+        justify-content: space-between;
+        div {
+            margin: 0.25em;
+            border: none;
+            flex-grow: 1;
+            text-align: start;
+        }
         svg {
             width: 1.2em;
             aspect-ratio: 1;
@@ -41,7 +45,7 @@ div {
 
         /* Handle */
         &::-webkit-scrollbar-thumb {
-            background: red;
+            background: $primary-color;
             border-radius: 10px;
         }
 
@@ -56,12 +60,15 @@ div {
         list-style-type: none;
         overflow-y: scroll;
         resize: vertical;
-        .active,
+        .active {
+            background-color: $primary-color;
+            color: $bg-color;
+        }
         li {
             color: $primary-color;
             background-color: $bg-color;
             padding: 0.5em;
-            margin: 0.25em 0;
+            margin: 0.25em;
             &:hover {
                 background-color: $primary-color;
                 color: $bg-color;

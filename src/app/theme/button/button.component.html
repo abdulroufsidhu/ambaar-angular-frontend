@@ -1,0 +1,11 @@
+<div [ngClass]="type()">
+    <span [ngClass]="{ icon: true }">
+        <ng-content select="[leadingIcon]"></ng-content>
+    </span>
+    <button [ngClass]="type()" type="submit">
+        {{ text() | titlecase }}
+    </button>
+    <span [ngClass]="{ icon: true }">
+        <ng-content select="[trailingIcon]"></ng-content>
+    </span>
+</div>

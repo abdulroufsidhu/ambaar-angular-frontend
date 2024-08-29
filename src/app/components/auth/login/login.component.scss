@@ -1,0 +1,15 @@
+@import "../../../app.component.scss";
+
+div {
+    padding: 0.5em;
+    margin: 0.1em;
+    background-color: $bg-color;
+    border: none;
+    filter: drop-shadow(2px 4px 6px $primary-color);
+    max-width: 19em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}

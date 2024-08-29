@@ -1,5 +1,5 @@
 <div>
-    <span class="icon">
+    <span [ngClass]="{ icon: true }">
         <ng-content select="[leadingIcon]"></ng-content>
     </span>
     <input
@@ -8,10 +8,10 @@
         [attr.max]="max?.()"
         [attr.minlength]="minlength?.()"
         [attr.maxlength]="maxlength?.()"
-        [attr.placeholder]="placeholder()"
-        (change)="onChange($event)"
+        [attr.placeholder]="placeholder() | titlecase"
+        [attr.value]="value()"
     />
-    <span class="icon">
+    <span [ngClass]="{ icon: true }">
         <ng-content class="icon" select="[trailingIcon]"></ng-content>
     </span>
 </div>

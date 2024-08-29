@@ -9,7 +9,6 @@ div {
     border: 2px solid $primary-color;
     border-radius: 0.5em;
     min-height: 32px;
-    margin: 0.25em;
     input {
         padding: 0;
         margin: 0;
@@ -17,15 +16,18 @@ div {
         outline-offset: 0;
         outline-width: 0;
         width: 100%;
+        background: #fff0;
     }
-    .icon {
-        cursor: pointer;
-        aspect-ratio: 1;
-        display: flex;
-        max-width: 2em;
-        overflow: clip;
+}
+.icon {
+    cursor: pointer;
+    aspect-ratio: 1;
+    display: flex;
+    max-width: 2em;
+    overflow: clip;
+    &::ng-deep {
         * {
-            max-width: 2em;
+            width: 2em;
         }
     }
 }
