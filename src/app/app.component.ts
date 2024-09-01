@@ -6,12 +6,12 @@ import {
   DropdownOption,
 } from "./theme/dropdown/dropdown.component";
 import { AppButton } from "./theme/button/button.component";
-import { AppLogin } from "./components/auth/login/login.component";
+import { AppAuth } from "./components/auth/auth.component";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, AppInput, AppDropdown, AppButton, AppLogin],
+  imports: [RouterOutlet, AppInput, AppDropdown, AppButton, AppAuth],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })

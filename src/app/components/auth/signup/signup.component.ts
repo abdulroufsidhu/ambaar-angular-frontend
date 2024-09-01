@@ -1,12 +1,256 @@
-import { Component } from "@angular/core";
+import { Component, model } from "@angular/core";
 import { AppInput } from "../../../theme/input/input.component";
-import { AppButton } from "../../../theme/button/button.component";
+import { CommonModule } from "@angular/common";
+import {
+  AppDropdown,
+  DropdownOption,
+} from "../../../theme/dropdown/dropdown.component";
+
+export interface Address {
+  house_number: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+}
+
+export interface Person {
+  first_name?: string;
+  last_name?: string;
+  contact_number?: string;
+  national_id?: string;
+  email?: string;
+  address?: Address;
+}
 
 @Component({
-  imports: [AppInput],
-  selector: "app-signup",
-  templateUrl: "./login.component.html",
-  styleUrl: "./login.component.scss",
   standalone: true,
+  imports: [CommonModule, AppInput, AppDropdown],
+  selector: "app-signup",
+  templateUrl: "./signup.component.html",
+  styleUrl: "./signup.component.scss",
 })
-export class AppSignup {}
+export class AppSignup {
+  person = model<Person>({
+    first_name: "",
+    last_name: "",
+    contact_number: "",
+    national_id: "",
+    email: "",
+  });
+  password = model<string>();
+  passwordType = "password";
+
+  private possibleCountries = [
+    "AFGHANISTAN",
+    "ALBANIA",
+    "ALGERIA",
+    "ANDORRA",
+    "ANGOLA",
+    "ANTIGUA_AND_BARBUDA",
+    "ARGENTINA",
+    "ARMENIA",
+    "AUSTRALIA",
+    "AUSTRIA",
+    "AZERBAIJAN",
+    "BAHAMAS",
+    "BAHRAIN",
+    "BANGLADESH",
+    "BARBADOS",
+    "BELARUS",
+    "BELGIUM",
+    "BELIZE",
+    "BENIN",
+    "BHUTAN",
+    "BOLIVIA",
+    "BOSNIA_AND_HERZEGOVINA",
+    "BOTSWANA",
+    "BRAZIL",
+    "BRUNEI",
+    "BULGARIA",
+    "BURKINA_FASO",
+    "BURUNDI",
+    "CABO_VERDE",
+    "CAMBODIA",
+    "CAMEROON",
+    "CANADA",
+    "CENTRAL_AFRICAN_REPUBLIC",
+    "CHAD",
+    "CHILE",
+    "CHINA",
+    "COLOMBIA",
+    "COMOROS",
+    "CONGO_REPUBLIC",
+    "COSTA_RICA",
+    "CROATIA",
+    "CUBA",
+    "CYPRUS",
+    "CZECH_REPUBLIC",
+    "DENMARK",
+    "DJIBOUTI",
+    "DOMINICA",
+    "DOMINICAN_REPUBLIC",
+    "EAST_TIMOR",
+    "ECUADOR",
+    "EGYPT",
+    "EL_SALVADOR",
+    "EQUATORIAL_GUINEA",
+    "ERITREA",
+    "ESTONIA",
+    "ESWATINI",
+    "ETHIOPIA",
+    "FIJI",
+    "FINLAND",
+    "FRANCE",
+    "GABON",
+    "GAMBIA",
+    "GEORGIA",
+    "GERMANY",
+    "GHANA",
+    "GREECE",
+    "GRENADA",
+    "GUATEMALA",
+    "GUINEA",
+    "GUINEA_BISSAU",
+    "GUYANA",
+    "HAITI",
+    "HONDURAS",
+    "HUNGARY",
+    "ICELAND",
+    "INDIA",
+    "INDONESIA",
+    "IRAN",
+    "IRAQ",
+    "IRELAND",
+    "ISRAEL",
+    "ITALY",
+    "IVORY_COAST",
+    "JAMAICA",
+    "JAPAN",
+    "JORDAN",
+    "KAZAKHSTAN",
+    "KENYA",
+    "KIRIBATI",
+    "KOSOVO",
+    "KUWAIT",
+    "KYRGYZSTAN",
+    "LAOS",
+    "LATVIA",
+    "LEBANON",
+    "LESOTHO",
+    "LIBERIA",
+    "LIBYA",
+    "LIECHTENSTEIN",
+    "LITHUANIA",
+    "LUXEMBOURG",
+    "MADAGASCAR",
+    "MALAWI",
+    "MALAYSIA",
+    "MALDIVES",
+    "MALI",
+    "MALTA",
+    "MARSHALL_ISLANDS",
+    "MAURITANIA",
+    "MAURITIUS",
+    "MEXICO",
+    "MICRONESIA",
+    "MOLDOVA",
+    "MONACO",
+    "MONGOLIA",
+    "MONTENEGRO",
+    "MOROCCO",
+    "MOZAMBIQUE",
+    "MYANMAR",
+    "NAMIBIA",
+    "NAURU",
+    "NEPAL",
+    "NETHERLANDS",
+    "NEW_ZEALAND",
+    "NICARAGUA",
+    "NIGER",
+    "NIGERIA",
+    "NORTH_KOREA",
+    "NORTH_MACEDONIA",
+    "NORWAY",
+    "OMAN",
+    "PAKISTAN",
+    "PALAU",
+    "PALESTINE",
+    "PANAMA",
+    "PAPUA_NEW_GUINEA",
+    "PARAGUAY",
+    "PERU",
+    "PHILIPPINES",
+    "POLAND",
+    "PORTUGAL",
+    "QATAR",
+    "ROMANIA",
+    "RUSSIA",
+    "RWANDA",
+    "SAINT_KITTS_AND_NEVIS",
+    "SAINT_LUCIA",
+    "SAMOA",
+    "SAN_MARINO",
+    "SAO_TOME_AND_PRINCIPE",
+    "SAUDI_ARABIA",
+    "SENEGAL",
+    "SERBIA",
+    "SEYCHELLES",
+    "SIERRA_LEONE",
+    "SINGAPORE",
+    "SLOVAKIA",
+    "SLOVENIA",
+    "SOLOMON_ISLANDS",
+    "SOMALIA",
+    "SOUTH_AFRICA",
+    "SOUTH_KOREA",
+    "SOUTH_SUDAN",
+    "SPAIN",
+    "SRI_LANKA",
+    "SUDAN",
+    "SURINAME",
+    "SWEDEN",
+    "SWITZERLAND",
+    "SYRIA",
+    "TAIWAN",
+    "TAJIKISTAN",
+    "TANZANIA",
+    "THAILAND",
+    "TOGO",
+    "TONGA",
+    "TRINIDAD_AND_TOBAGO",
+    "TUNISIA",
+    "TURKEY",
+    "TURKMENISTAN",
+    "TUVALU",
+    "UGANDA",
+    "UKRAINE",
+    "UNITED_ARAB_EMIRATES",
+    "UNITED_KINGDOM",
+    "UNITED_STATES",
+    "URUGUAY",
+    "UZBEKISTAN",
+    "VANUATU",
+    "VATICAN_CITY",
+    "VENEZUELA",
+    "VIETNAM",
+    "YEMEN",
+    "ZAMBIA",
+    "ZIMBABWE",
+  ];
+
+  countriesOptions: DropdownOption[] = this.possibleCountries.map((o) => {
+    return { value: o, text: o };
+  });
+
+  selectedCountry = this.countriesOptions.filter(
+    (e) => e.value == "PAKISTAN",
+  )[0];
+
+  onPasswordTypeToggle() {
+    if (this.passwordType == "password") this.passwordType = "text";
+    else this.passwordType = "password";
+    console.log("passwordType shall be", this.passwordType);
+  }
+}

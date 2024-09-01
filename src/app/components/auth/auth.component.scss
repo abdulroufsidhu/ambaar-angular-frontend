@@ -1,0 +1,65 @@
+@import "../../app.component.scss";
+
+.hide {
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.show {
+    height: auto;
+    padding: 1em;
+    margin: 0.1em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+}
+
+div {
+    width: 100dvw;
+    height: 100%;
+    background-color: $bg-color;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    gap: 1em;
+    div {
+        height: auto;
+        width: auto;
+        background: none;
+        section {
+            display: flex;
+            align-items: center;
+            background: $bg-color;
+            box-shadow: 0 0 2em $grey-color;
+            padding: 1em;
+            gap: 1em;
+            max-height: 60dvh;
+            overflow-y: auto;
+            overflow-x: none;
+        }
+        div {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+    }
+}

@@ -1,35 +1,70 @@
 <div>
-    <svg
-        width="125"
-        height="125"
-        viewBox="0 0 125 125"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+    <h2>Signup</h2>
+    <h3>Person</h3>
+    <app-input
+        placeholder="first name"
+        [value]="person().first_name"
+        type="text"
+    />
+    <app-input
+        placeholder="last name"
+        [value]="person().last_name"
+        type="text"
+    />
+    <app-input
+        placeholder="contact number"
+        [value]="person().contact_number"
+        type="text"
+    />
+    <app-input
+        placeholder="national id"
+        [value]="person().national_id"
+        type="text"
+    />
+    <app-input placeholder="eMail" [value]="person().email" type="text" />
+    <app-input
+        placeholder="password"
+        [value]="password()"
+        [type]="passwordType"
     >
-        <circle
-            cx="62.5"
-            cy="62.5"
-            r="61.5"
-            fill="#E9E9E9"
-            fill-opacity="0.8"
-            stroke="#222222"
-            stroke-width="2"
-        />
-        <path
-            d="M87.5 90.625V84.375C87.5 81.0598 86.183 77.8804 83.8388 75.5362C81.4946 73.192 78.3152 71.875 75 71.875H50C46.6848 71.875 43.5054 73.192 41.1612 75.5362C38.817 77.8804 37.5 81.0598 37.5 84.375V90.625"
-            stroke="#222222"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        />
-        <path
-            d="M62.5 59.375C69.4036 59.375 75 53.7786 75 46.875C75 39.9714 69.4036 34.375 62.5 34.375C55.5964 34.375 50 39.9714 50 46.875C50 53.7786 55.5964 59.375 62.5 59.375Z"
-            stroke="#222222"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        />
-    </svg>
-    <app-input></app-input>
-    <app-input></app-input>
+        <span
+            trailingIcon
+            [ngClass]="{ eye: true }"
+            (click)="onPasswordTypeToggle()"
+        >
+            👁
+        </span>
+    </app-input>
+
+    <h3>Address</h3>
+    <app-input
+        placeholder="House Number"
+        [value]="person().address?.house_number"
+        type="text"
+    />
+    <app-input
+        placeholder="Street"
+        [value]="person().address?.street"
+        type="text"
+    />
+    <app-input
+        placeholder="City"
+        [value]="person().address?.city"
+        type="text"
+    />
+    <app-input
+        placeholder="State"
+        [value]="person().address?.state"
+        type="text"
+    />
+    <app-dropdown
+        [options]="countriesOptions"
+        placeholder="Country..."
+        [active]="selectedCountry"
+    />
+    <app-input
+        placeholder="Zip Code"
+        [value]="person().address?.zip"
+        type="text"
+    />
 </div>

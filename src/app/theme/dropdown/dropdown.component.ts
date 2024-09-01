@@ -4,6 +4,7 @@ import {
   effect,
   EventEmitter,
   input,
+  model,
   signal,
   WritableSignal,
 } from "@angular/core";
@@ -22,14 +23,14 @@ export interface DropdownOption {
 })
 export class AppDropdown {
   options = input.required<DropdownOption[]>();
-  active: DropdownOption = {};
+  active = model<DropdownOption>();
   isOpen = true;
   placeholder = input<string>("Dropdown");
 
   onChange = new EventEmitter<DropdownOption>();
 
   setActive(newValue: DropdownOption) {
-    this.active = newValue;
+    this.active.set(newValue);
     this.toggleOpen();
   }
 

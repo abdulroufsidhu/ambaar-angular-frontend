@@ -2,7 +2,7 @@
     <span [ngClass]="{ icon: true }">
         <ng-content select="[leadingIcon]"></ng-content>
     </span>
-    <button [ngClass]="type()" type="submit">
+    <button [ngClass]="type()" type="submit" (click)="click()">
         {{ text() | titlecase }}
     </button>
     <span [ngClass]="{ icon: true }">

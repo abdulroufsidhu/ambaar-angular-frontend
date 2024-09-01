@@ -1,8 +1,16 @@
 <div>
-    <app-input placeholder="eMail" value="email" type="text"></app-input>
+    <app-input placeholder="eMail" [value]="email()" type="email"></app-input>
     <app-input
         placeholder="password"
-        value="password"
-        type="password"
-    ></app-input>
+        [value]="password()"
+        [type]="passwordType"
+    >
+        <span
+            trailingIcon
+            [ngClass]="{ eye: true }"
+            (click)="onPasswordTypeToggle()"
+        >
+            👁
+        </span>
+    </app-input>
 </div>

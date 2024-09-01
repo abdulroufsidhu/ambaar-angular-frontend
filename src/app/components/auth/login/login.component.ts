@@ -1,12 +1,23 @@
-import { Component } from "@angular/core";
+import { Component, model } from "@angular/core";
 import { AppInput } from "../../../theme/input/input.component";
 import { AppButton } from "../../../theme/button/button.component";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  imports: [AppInput],
+  imports: [CommonModule, AppInput, AppButton],
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
   standalone: true,
 })
-export class AppLogin {}
+export class AppLogin {
+  email = model<string>();
+  password = model<string>();
+  passwordType = "password";
+
+  onPasswordTypeToggle() {
+    if (this.passwordType == "password") this.passwordType = "text";
+    else this.passwordType = "password";
+    console.log("passwordType shall be", this.passwordType);
+  }
+}

@@ -1,9 +1,9 @@
 <div>
     <div (click)="toggleOpen()">
-        <div *ngIf="active.value">
-            {{ active.text | titlecase }}
+        <div *ngIf="active()">
+            {{ active()?.text | titlecase }}
         </div>
-        <div *ngIf="!active.value" style="color: bfb2b2b2">
+        <div *ngIf="!active()" style="color: bfb2b2b2">
             {{ placeholder() | titlecase }}
         </div>
         <svg
@@ -28,7 +28,7 @@
             <li
                 (click)="setActive(option)"
                 [attr.value]="option.value"
-                [ngClass]="{ active: option.value == active.value }"
+                [ngClass]="{ active: option.value == active()?.value }"
             >
                 {{ option.text }}
             </li>
