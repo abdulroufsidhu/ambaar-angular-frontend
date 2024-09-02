@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 $primary-color: #222222;
-$bg-color: #e9e9e9bf;
-$grey-color: #b2b2b2ba;
+$bg-color: #e9e9e990;
+$grey-color: #b2b2b280;
 * {
     transition: all 300ms ease-in-out;
     padding: 0;
@@ -36,4 +36,5 @@ main {
     background-color: #758694;
     color: $primary-color;
     border-radius: 0;
+    justify-content: space-between;
 }

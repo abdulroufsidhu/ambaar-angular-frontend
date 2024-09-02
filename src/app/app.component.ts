@@ -7,11 +7,21 @@ import {
 } from "./theme/dropdown/dropdown.component";
 import { AppButton } from "./theme/button/button.component";
 import { AppAuth } from "./components/auth/auth.component";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+import { NavDockComponent } from "./nav-dock/nav-dock.component";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, AppInput, AppDropdown, AppButton, AppAuth],
+  imports: [
+    RouterOutlet,
+    AppInput,
+    AppDropdown,
+    AppButton,
+    AppAuth,
+    SidebarComponent,
+    NavDockComponent,
+  ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })

@@ -1,0 +1,35 @@
+@import "../app.component.scss";
+section {
+    padding: 0.25em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.25em;
+    div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .horizontal-line {
+        margin-bottom: 0.25em;
+        height: 0.125em;
+        width: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            $primary-color,
+            transparent
+        );
+    }
+
+    .vertical-line {
+        width: 0.125em;
+        height: auto;
+        background: linear-gradient(
+            0deg,
+            transparent,
+            $primary-color,
+            transparent
+        );
+    }
+}

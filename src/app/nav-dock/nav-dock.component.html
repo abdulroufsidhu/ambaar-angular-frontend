@@ -1,0 +1,35 @@
+<section [ngClass]="{ 'nav-margin': expanded() }" *ngIf="buttons().length > 0">
+    <div
+        [ngClass]="{ icon: true, 'border-bottom': !expanded() }"
+        (click)="toggleOpen()"
+    >
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            [ngClass]="{ 'rotate-up': !expanded(), 'rotate-down': expanded() }"
+        >
+            <path
+                d="M6 9L12 15L18 9"
+                stroke="#222222"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    </div>
+
+    <div [ngClass]="{ invisible: !expanded() }">
+        @for (button of buttons(); track button.text) {
+            <app-button
+                type="icon-only"
+                text="{{ button.text }}"
+                (click)="button.click()"
+            >
+                <span leadingIcon>{{ button.icon }}</span>
+            </app-button>
+        }
+    </div>
+</section>

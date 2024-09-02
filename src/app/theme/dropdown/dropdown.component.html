@@ -23,7 +23,7 @@
             />
         </svg>
     </div>
-    <ul [ngClass]="{ visible: isOpen }">
+    <ul [ngClass]="{ invisible: isOpen }">
         @for (option of options(); track option.value) {
             <li
                 (click)="setActive(option)"

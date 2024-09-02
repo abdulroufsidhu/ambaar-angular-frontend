@@ -2,27 +2,13 @@ import { Component, model } from "@angular/core";
 import { AppInput } from "../../../theme/input/input.component";
 import { CommonModule } from "@angular/common";
 import {
+  Address,
+  Person,
+} from "ambaar-datalayer-angular/projects/datalayer/src/lib/models/res-models";
+import {
   AppDropdown,
   DropdownOption,
 } from "../../../theme/dropdown/dropdown.component";
-
-export interface Address {
-  house_number: string;
-  street: string;
-  city: string;
-  state: string;
-  zip: string;
-  country: string;
-}
-
-export interface Person {
-  first_name?: string;
-  last_name?: string;
-  contact_number?: string;
-  national_id?: string;
-  email?: string;
-  address?: Address;
-}
 
 @Component({
   standalone: true,

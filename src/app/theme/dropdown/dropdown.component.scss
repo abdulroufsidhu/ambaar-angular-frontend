@@ -2,6 +2,7 @@
 div {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     div {
         padding: 0;
         min-height: 2em;
@@ -27,8 +28,9 @@ div {
             rotate: 180deg;
         }
     }
-    .visible {
+    .invisible {
         height: 0;
+        margin-bottom: 0;
         visibility: hidden;
     }
     ul {
@@ -50,9 +52,10 @@ div {
 
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
-            background: #b30000;
+            background: $grey-color;
         }
 
+        margin-bottom: 0.25em;
         border: 2px solid $primary-color;
         height: 8em;
         visibility: visible;
@@ -65,7 +68,7 @@ div {
         }
         li {
             color: $primary-color;
-            background-color: $bg-color;
+            background-color: none;
             padding: 0.5em;
             margin: 0.25em;
             &:hover {
