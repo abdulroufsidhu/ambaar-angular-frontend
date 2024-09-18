@@ -30,7 +30,7 @@
                 [attr.value]="option.value"
                 [ngClass]="{ active: option.value == active()?.value }"
             >
-                {{ option.text }}
+                {{ option.text | titlecase }}
             </li>
         }
     </ul>

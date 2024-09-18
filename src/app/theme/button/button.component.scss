@@ -12,7 +12,7 @@
     padding: 0.5em 1em;
 }
 
-.icon-only {
+.expandable {
     background: $primary-color;
     color: $bg-color;
     overflow: clip;
@@ -29,6 +29,13 @@
             color: $bg-color;
         }
     }
+}
+
+.active {
+    padding: 0em 2em;
+    width: auto;
+    background: $primary-color;
+    color: $bg-color;
 }
 
 div {

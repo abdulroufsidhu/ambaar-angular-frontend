@@ -1,6 +1,6 @@
 import { Component, model } from "@angular/core";
-import { AppButton } from "../theme/button/button.component";
 import { CommonModule } from "@angular/common";
+import { AppButton } from "../theme/button/button.component";
 
 export interface NavButton {
   text: string;
@@ -17,15 +17,8 @@ export interface NavButton {
 })
 export class NavDockComponent {
   expanded = model(false);
-  buttons = model<NavButton[]>([
-    {
-      click: () => {
-        console.log("clicked");
-      },
-      text: "inventory",
-      icon: "🧾",
-    },
-  ]);
+  buttons = model<NavButton[]>([]);
+  activeButton = model(this.buttons.length > 0 ? 0 : -1);
 
   toggleOpen() {
     this.expanded.update((v) => !v);

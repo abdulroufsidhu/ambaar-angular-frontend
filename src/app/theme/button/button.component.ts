@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, input, output } from "@angular/core";
+import { Component, EventEmitter, input, model, output } from "@angular/core";
 
 @Component({
   imports: [CommonModule],
@@ -10,7 +10,7 @@ import { Component, EventEmitter, input, output } from "@angular/core";
 })
 export class AppButton {
   click = input<Function>();
-  type = input<"link" | "icon-only" | "btn">("btn");
+  type = input<"link" | "expandable" | "btn" | "active">("btn");
 
   text = input<string>();
 }

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { AppDropdown } from "../theme/dropdown/dropdown.component";
 import { CommonModule } from "@angular/common";
+import { AppDropdown } from "../dropdown/dropdown.component";
 
 @Component({
   selector: "app-sidebar",

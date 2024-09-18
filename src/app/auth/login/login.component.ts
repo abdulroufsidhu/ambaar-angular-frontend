@@ -1,7 +1,7 @@
 import { Component, model } from "@angular/core";
-import { AppInput } from "../../../theme/input/input.component";
-import { AppButton } from "../../../theme/button/button.component";
 import { CommonModule } from "@angular/common";
+import { AppInput } from "../../theme/input/input.component";
+import { AppButton } from "../../theme/button/button.component";
 
 @Component({
   imports: [CommonModule, AppInput, AppButton],
